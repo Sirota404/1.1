@@ -62,7 +62,7 @@ namespace Сollections
             Console.WriteLine("Количество элементов в ArrayList: " + arrayList.Count);
             Console.WriteLine("Количество элементов в LinkedList: " + linkedList.Count);
 
-            
+            Console.Readkey();
         }
     }
 }
