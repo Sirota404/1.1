@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Diagnostics;
 
 namespace Сollections
@@ -9,53 +9,61 @@ namespace Сollections
         {
             int elementToFind = 496753;
 
-            Stopwatch Stopwatch = new Stopwatch();
+            Stopwatch StopwatchList = new Stopwatch();
+            Stopwatch StopwatchArrayList = new Stopwatch();
+            Stopwatch StopwatchLinkedList = new Stopwatch();
+            Stopwatch StopwatchTime1 = new Stopwatch();
+            Stopwatch StopwatchTime2 = new Stopwatch();
+            Stopwatch StopwatchTime3 = new Stopwatch();
+
             // Создание List
             List<int> list = new List<int>();
-            Stopwatch.Start();
+            StopwatchList.Start();
             for (int i = 1; i <= 1000000; i++)
             {
                 list.Add(i);
             }
-            Stopwatch.Stop();
-            Console.WriteLine("Время заполнения коллекции List: " + Stopwatch.ElapsedMilliseconds + " мс");
-            Stopwatch.Start();
+            StopwatchList.Stop();
+            Console.WriteLine("Время заполнения коллекции List: " + StopwatchList.ElapsedMilliseconds + " мс");
+            StopwatchTime1.Start();
             int foundElement1 = list[elementToFind - 1];
-            Stopwatch.Stop();
-            TimeSpan searchTime1 = Stopwatch.Elapsed;
+            StopwatchTime1.Stop();
+            TimeSpan searchTime1 = StopwatchTime1.Elapsed;
             Console.WriteLine($"Найденный элемент в коллекции List: {foundElement1}");
-            Console.WriteLine($"Время поиска элемента в коллекции List: {searchTime1.TotalMilliseconds} мс");
+            Console.WriteLine($"Время поиска элемента в коллекции List: {searchTime1.TotalMilliseconds} мс \n");
+
             // Создание ArrayList
             ArrayList arrayList = new ArrayList();
-            Stopwatch.Start();
+            StopwatchArrayList.Start();
             for (int i = 1; i <= 1000000; i++)
             {
                 arrayList.Add(i);
             }
-            Stopwatch.Stop();
-            Console.WriteLine("Время заполнения коллекции ArrayList: " + Stopwatch.ElapsedMilliseconds + " мс");
-            Stopwatch.Start();
+            StopwatchArrayList.Stop();
+            Console.WriteLine("Время заполнения коллекции ArrayList: " + StopwatchArrayList.ElapsedMilliseconds + " мс");
+            StopwatchTime2.Start();
             int foundElement2 = list[elementToFind - 1];
-            Stopwatch.Stop();
-            TimeSpan searchTime2 = Stopwatch.Elapsed;
+            StopwatchTime2.Stop();
+            TimeSpan searchTime2 = StopwatchTime2.Elapsed;
             Console.WriteLine($"Найденный элемент в коллекции ArrayList: {foundElement2}");
-            Console.WriteLine($"Время поиска элемента в коллекции ArrayList: {searchTime2.TotalMilliseconds} мс");
+            Console.WriteLine($"Время поиска элемента в коллекции ArrayList: {searchTime2.TotalMilliseconds} мс \n");
+            
 
             // Создание LinkedList
             LinkedList<int> linkedList = new LinkedList<int>();
-            Stopwatch.Start();
+            StopwatchLinkedList.Start();
             for (int i = 1; i <= 1000000; i++)
             {
                 linkedList.AddLast(i);
             }
-            Stopwatch.Stop();
-            Console.WriteLine("Время заполнения коллекции LinkedList: " + Stopwatch.ElapsedMilliseconds + " мс");
-            Stopwatch.Start();
+            StopwatchLinkedList.Stop();
+            Console.WriteLine("Время заполнения коллекции LinkedList: " + StopwatchLinkedList.ElapsedMilliseconds + " мс");
+            StopwatchTime3.Start();
             int foundElement3 = list[elementToFind - 1];
-            Stopwatch.Stop();
-            TimeSpan searchTime3 = Stopwatch.Elapsed;
-            Console.WriteLine($"Найденный элемент в коллекции ArrayList: {foundElement3}");
-            Console.WriteLine($"Время поиска элемента в коллекции ArrayList: {searchTime3.TotalMilliseconds} мс");
+            StopwatchTime3.Stop();
+            TimeSpan searchTime3 = StopwatchTime3.Elapsed;
+            Console.WriteLine($"Найденный элемент в коллекции LinkedList: {foundElement3}");
+            Console.WriteLine($"Время поиска элемента в коллекции LinkedList: {searchTime3.TotalMilliseconds} мс \n");
 
 
             Console.WriteLine("Количество элементов в List: " + list.Count);
