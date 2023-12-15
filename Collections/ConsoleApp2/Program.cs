@@ -17,6 +17,9 @@ namespace Сollections
                 Stopwatch StopwatchTime1 = new Stopwatch();
                 Stopwatch StopwatchTime2 = new Stopwatch();
                 Stopwatch StopwatchTime3 = new Stopwatch();
+                Stopwatch Stopwatch1777 = new Stopwatch();
+                Stopwatch Stopwatch2777 = new Stopwatch();
+                Stopwatch Stopwatch3777 = new Stopwatch();
 
                 // Создание List
                 List<int> list = new List<int>();
@@ -26,7 +29,17 @@ namespace Сollections
                     list.Add(i);
                 }
                 StopwatchList.Stop();
-                Console.WriteLine("Время заполнения коллекции List: " + StopwatchList.ElapsedMilliseconds + " мс");
+                Stopwatch1777.Start();
+                Console.Write($"Элемент коллекции List, который без остатка делится на 777:\n");
+                foreach (int num in list)
+                {
+                    if (num % 777 == 0)
+                    {
+                        Console.Write($"{num}");
+                    }
+                }
+                Stopwatch1777.Stop();
+                Console.WriteLine("\nВремя заполнения коллекции List: " + StopwatchList.ElapsedMilliseconds + " мс");
                 StopwatchTime1.Start();
                 int foundElement1 = list[elementToFind - 1];
                 StopwatchTime1.Stop();
@@ -42,7 +55,17 @@ namespace Сollections
                     arrayList.Add(i);
                 }
                 StopwatchArrayList.Stop();
-                Console.WriteLine("Время заполнения коллекции ArrayList: " + StopwatchArrayList.ElapsedMilliseconds + " мс");
+                Stopwatch2777.Start();
+                Console.Write($"Элемент коллекции ArrayList, который без остатка делится на 777:\n");
+                foreach (int num in arrayList)
+                {
+                    if (num % 777 == 0)
+                    {
+                        Console.Write($"{num} ");
+                    }
+                }
+                Stopwatch2777.Stop();
+                Console.WriteLine("\nВремя заполнения коллекции ArrayList: " + StopwatchArrayList.ElapsedMilliseconds + " мс");
                 StopwatchTime2.Start();
                 int foundElement2 = list[elementToFind - 1];
                 StopwatchTime2.Stop();
@@ -59,7 +82,17 @@ namespace Сollections
                     linkedList.AddLast(i);
                 }
                 StopwatchLinkedList.Stop();
-                Console.WriteLine("Время заполнения коллекции LinkedList: " + StopwatchLinkedList.ElapsedMilliseconds + " мс");
+                Stopwatch3777.Start();
+                Console.Write($"Элемент коллекции LinkedList, который без остатка делится на 777:\n");
+                foreach (int num in linkedList)
+                {
+                    if (num % 777 == 0)
+                    {
+                        Console.Write($"{num} ");
+                    }
+                }
+                Stopwatch3777.Stop();
+                Console.WriteLine("\nВремя заполнения коллекции LinkedList: " + StopwatchLinkedList.ElapsedMilliseconds + " мс");
                 StopwatchTime3.Start();
                 int foundElement3 = list[elementToFind - 1];
                 StopwatchTime3.Stop();
@@ -70,18 +103,33 @@ namespace Сollections
 
                 Console.WriteLine("Количество элементов в List: " + list.Count);
                 Console.WriteLine("Количество элементов в ArrayList: " + arrayList.Count);
-                Console.WriteLine("Количество элементов в LinkedList: " + linkedList.Count +"\n");
+                Console.WriteLine("Количество элементов в LinkedList: " + linkedList.Count + "\n");
 
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Хотите выполнить программу ещё раз? (да/нет)");
-                Console.ResetColor();
-
-                string answer = Console.ReadLine();
-
-                if (answer != "да")
+                while (true)
                 {
-                    break;
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Введите 'да' чтобы запустить заново:");
+                    Console.ResetColor();
+
+                    string input = Console.ReadLine();
+
+                    if (input.ToLower() == "да")
+                    {
+                        Console.WriteLine("Вы ввели 'да'. \n");
+                        break;
+                    }
+                    else if (input.ToLower() == "нет")
+                    {
+                        Console.WriteLine("Вы ввели 'нет'.\n");
+                        Environment.Exit(0);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Вы ввели неверное значение. Пожалуйста, повторите попытку.");
+                    }
                 }
+
+
             }
         }
     }
